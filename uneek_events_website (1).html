@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="UNEEK EVENTS UK — Luxury event management company specialising in weddings, galas, and corporate events. Make It A Special Day.">
+<meta name="keywords" content="event management UK, wedding planner UK, luxury events, corporate events, UNEEK EVENTS">
+<title>UNEEK EVENTS UK — Make It A Special Day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A85C;
+  --gold-light: #E8C97A;
+  --gold-pale: #F5E6C8;
+  --navy: #0D1117;
+  --navy-mid: #151C27;
+  --navy-light: #1E2A3A;
+  --navy-card: #162030;
+  --cream: #FAF6EF;
+  --cream-mid: #F0EAE0;
+  --text-dark: #1A1A2E;
+  --text-body-dark: rgba(250,246,239,0.82);
+  --text-body-light: rgba(26,26,46,0.78);
+  --border-gold: rgba(201,168,92,0.3);
+  --border-gold-strong: rgba(201,168,92,0.6);
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Cormorant Garamond', serif;
+  --font-sans: 'Montserrat', sans-serif;
+  --transition: cubic-bezier(0.4, 0, 0.2, 1);
+}
+[data-theme="dark"] {
+  --bg: var(--navy);
+  --bg-mid: var(--navy-mid);
+  --bg-card: var(--navy-card);
+  --bg-light: var(--navy-light);
+  --text: var(--cream);
+  --text-body: var(--text-body-dark);
+  --text-muted: rgba(250,246,239,0.45);
+  --border: var(--border-gold);
+  --shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+[data-theme="light"] {
+  --bg: var(--cream);
+  --bg-mid: var(--cream-mid);
+  --bg-card: #fff;
+  --bg-light: #F5EFE6;
+  --text: var(--text-dark);
+  --text-body: var(--text-body-light);
+  --text-muted: rgba(26,26,46,0.45);
+  --border: rgba(201,168,92,0.25);
+  --shadow: 0 8px 40px rgba(0,0,0,0.1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:1.1rem;line-height:1.7;transition:background 0.4s,color 0.4s;overflow-x:hidden}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* UTILITIES */
+.container{max-width:1240px;margin:0 auto;padding:0 2rem}
+.section{padding:7rem 0}
+.section-sm{padding:4rem 0}
+.gold{color:var(--gold)}
+.serif{font-family:var(--font-display)}
+.sans{font-family:var(--font-sans)}
+.text-center{text-align:center}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+@media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}.grid-4{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.grid-4{grid-template-columns:1fr}}
+
+/* DIVIDER */
+.divider{display:flex;align-items:center;gap:1.5rem;margin:1.5rem 0}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border-gold)}
+.divider-diamond{width:10px;height:10px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+
+/* SECTION TITLE */
+.section-tag{font-family:var(--font-sans);font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.8rem}
+.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:600;line-height:1.2;margin-bottom:1.2rem}
+.section-sub{font-family:var(--font-body);font-size:1.15rem;color:var(--text-body);max-width:620px;font-weight:300}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(--font-sans);font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;padding:1rem 2.4rem;border-radius:0;cursor:pointer;transition:all 0.3s var(--transition);text-decoration:none;border:none}
+.btn-gold{background:var(--gold);color:var(--navy);font-weight:600}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,92,0.4)}
+.btn-outline{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.btn-outline:hover{background:var(--gold);color:var(--navy)}
+.btn-arrow::after{content:'→';transition:transform 0.3s}
+.btn-arrow:hover::after{transform:translateX(4px)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 0;transition:all 0.4s var(--transition)}
+nav.scrolled{background:var(--bg-mid);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0.8rem 0;box-shadow:var(--shadow)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1240px;margin:0 auto;padding:0 2rem}
+.nav-logo{font-family:var(--font-display);font-size:1.4rem;color:var(--gold);text-decoration:none;letter-spacing:0.05em;font-style:italic}
+.nav-logo span{font-style:normal;font-weight:700}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-family:var(--font-sans);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-body);text-decoration:none;transition:color 0.3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.theme-toggle{background:none;border:1px solid var(--border-gold);color:var(--gold);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center;transition:all 0.3s}
+.theme-toggle:hover{background:var(--gold);color:var(--navy)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--gold);transition:all 0.3s;display:block}
+@media(max-width:1024px){.nav-links{gap:1.5rem}}
+@media(max-width:768px){
+  .nav-links{display:none;position:fixed;top:0;right:0;width:280px;height:100vh;background:var(--bg-mid);flex-direction:column;gap:0;padding:6rem 2rem 2rem;border-left:1px solid var(--border);z-index:999}
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:0.85rem;padding:1rem 0;border-bottom:1px solid var(--border)}
+  .hamburger{display:flex}
+}
+
+/* HERO */
+#home{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:var(--navy)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-slides{position:absolute;inset:0;z-index:0}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s ease;background-size:cover;background-position:center}
+.hero-slide.active{opacity:1}
+.hero-slide:nth-child(1){background:linear-gradient(135deg,#0D1117 0%,#1a0a2e 40%,#0D1117 100%)}
+.hero-slide:nth-child(2){background:linear-gradient(225deg,#0D1117 0%,#1a1a0a 40%,#0D1117 100%)}
+.hero-slide:nth-child(3){background:linear-gradient(315deg,#0D1117 0%,#0a1a1a 40%,#0D1117 100%)}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,17,23,0.2) 0%,rgba(13,17,23,0.7) 100%);z-index:1}
+.hero-pattern{position:absolute;inset:0;z-index:1;opacity:0.04;background-image:repeating-linear-gradient(0deg,var(--gold) 0px,transparent 1px,transparent 80px),repeating-linear-gradient(90deg,var(--gold) 0px,transparent 1px,transparent 80px)}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:900px;padding:0 2rem;animation:heroIn 1.2s ease forwards}
+@keyframes heroIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{font-family:var(--font-sans);font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:block;animation:fadeUp 1s 0.3s both}
+.hero-title{font-family:var(--font-display);font-size:clamp(3rem,7vw,6rem);font-weight:700;line-height:1.05;color:var(--cream);margin-bottom:0.5rem;animation:fadeUp 1s 0.5s both}
+.hero-title em{font-style:italic;color:var(--gold);display:block}
+.hero-subtitle{font-family:var(--font-body);font-size:clamp(1rem,2vw,1.3rem);color:rgba(250,246,239,0.7);margin:1.5rem 0 3rem;font-weight:300;letter-spacing:0.05em;animation:fadeUp 1s 0.7s both}
+.hero-ctas{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s 0.9s both}
+.hero-scroll{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:var(--text-muted);font-family:var(--font-sans);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;animation:fadeUp 1s 1.2s both}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollLine 2s ease-in-out infinite}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* HERO STATS */
+.hero-stats{position:absolute;bottom:6rem;right:3rem;z-index:2;display:flex;flex-direction:column;gap:1.5rem;animation:fadeRight 1s 1.2s both}
+@keyframes fadeRight{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+.stat-item{text-align:right}
+.stat-num{font-family:var(--font-display);font-size:2.2rem;color:var(--gold);font-weight:700;line-height:1}
+.stat-label{font-family:var(--font-sans);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted)}
+@media(max-width:768px){.hero-stats{display:none}}
+
+/* MARQUEE */
+.marquee-bar{background:var(--gold);padding:0.8rem 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-flex;animation:marquee 30s linear infinite}
+.marquee-item{font-family:var(--font-sans);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--navy);padding:0 3rem;font-weight:600}
+.marquee-dot{display:inline-block;width:4px;height:4px;background:var(--navy);border-radius:50%;margin:0 0.5rem;vertical-align:middle}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:center}
+.about-img-stack{position:relative;height:550px}
+.about-img-main{width:75%;height:420px;object-fit:cover;position:absolute;top:0;left:0;border:1px solid var(--border-gold)}
+.about-img-accent{width:55%;height:300px;object-fit:cover;position:absolute;bottom:0;right:0;border:3px solid var(--gold)}
+.about-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100px;height:100px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:2}
+.about-badge-inner{text-align:center;color:var(--navy)}
+.about-badge-num{font-family:var(--font-display);font-size:1.8rem;font-weight:700;line-height:1}
+.about-badge-text{font-family:var(--font-sans);font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600}
+.img-placeholder{background:var(--bg-light);border:1px solid var(--border)}
+.values-row{display:flex;gap:2rem;margin-top:2.5rem}
+.value-item{display:flex;align-items:flex-start;gap:1rem}
+.value-icon{width:40px;height:40px;border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;flex-shrink:0}
+.value-text h4{font-family:var(--font-sans);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+.value-text p{font-size:0.95rem;color:var(--text-body)}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}.about-img-stack{height:400px;margin-bottom:2rem}.values-row{flex-direction:column}}
+
+/* SERVICES */
+#services{background:var(--bg-mid)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border)}
+.service-card{padding:2.8rem 2.5rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden;transition:all 0.4s var(--transition);cursor:pointer}
+.service-card:hover{background:var(--bg-light)}
+.service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,92,0.06),transparent);opacity:0;transition:opacity 0.4s}
+.service-card:hover::before{opacity:1}
+.service-num{font-family:var(--font-display);font-size:3.5rem;color:var(--border-gold);font-weight:700;line-height:1;margin-bottom:1.5rem;transition:color 0.3s}
+.service-card:hover .service-num{color:var(--gold)}
+.service-icon{font-size:1.8rem;margin-bottom:1rem}
+.service-card h3{font-family:var(--font-display);font-size:1.4rem;margin-bottom:0.8rem;color:var(--text)}
+.service-card p{font-size:0.95rem;color:var(--text-body);line-height:1.7}
+.service-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
+.service-tag{font-family:var(--font-sans);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.3rem 0.8rem;border:1px solid var(--border-gold);color:var(--gold)}
+@media(max-width:900px){.services-grid{grid-template-columns:1fr}}
+@media(min-width:901px){.service-card:nth-child(3n){border-right:none}.service-card:nth-last-child(-n+3){border-bottom:none}}
+
+/* PORTFOLIO */
+.portfolio-filters{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;justify-content:center}
+.filter-btn{font-family:var(--font-sans);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.6rem 1.5rem;border:1px solid var(--border);color:var(--text-muted);background:none;cursor:pointer;transition:all 0.3s}
+.filter-btn.active,.filter-btn:hover{border-color:var(--gold);color:var(--gold)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:280px;gap:4px}
+.portfolio-item{position:relative;overflow:hidden;cursor:pointer}
+.portfolio-item.wide{grid-column:span 2}
+.portfolio-item.tall{grid-row:span 2}
+.portfolio-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 0.6s var(--transition)}
+.portfolio-item:hover .portfolio-bg{transform:scale(1.08)}
+.portfolio-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,17,23,0.9) 0%,transparent 60%);opacity:0;transition:opacity 0.4s;display:flex;align-items:flex-end;padding:2rem}
+.portfolio-item:hover .portfolio-overlay{opacity:1}
+.portfolio-info h4{font-family:var(--font-display);font-size:1.2rem;color:var(--cream);margin-bottom:0.3rem}
+.portfolio-info span{font-family:var(--font-sans);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold)}
+.portfolio-dummy{background:var(--bg-light)}
+.pd-1{background:linear-gradient(135deg,#1a1030,#2a1a40)}
+.pd-2{background:linear-gradient(135deg,#0a1a10,#1a2a1a)}
+.pd-3{background:linear-gradient(135deg,#1a1010,#301a1a)}
+.pd-4{background:linear-gradient(135deg,#10101a,#1a1a30)}
+.pd-5{background:linear-gradient(225deg,#1a1520,#251a30)}
+.pd-6{background:linear-gradient(225deg,#0a1520,#1a2030)}
+@media(max-width:768px){.portfolio-grid{grid-template-columns:1fr 1fr}.portfolio-item.wide{grid-column:span 2}.portfolio-item.tall{grid-row:span 1}}
+
+/* TESTIMONIALS */
+#testimonials-section{background:var(--bg-mid)}
+.rating-overview{display:flex;align-items:center;gap:3rem;padding:3rem;background:var(--bg-card);border:1px solid var(--border);margin-bottom:3rem}
+.rating-big{font-family:var(--font-display);font-size:5rem;font-weight:700;color:var(--gold);line-height:1}
+.rating-stars{color:var(--gold);font-size:1.4rem;letter-spacing:2px;display:block;margin-bottom:0.3rem}
+.rating-count{font-family:var(--font-sans);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)}
+.rating-bars{flex:1}
+.rating-bar-row{display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem}
+.rating-bar-label{font-family:var(--font-sans);font-size:0.7rem;color:var(--text-muted);width:40px;text-align:right}
+.rating-bar-track{flex:1;height:6px;background:var(--bg-light);border-radius:3px;overflow:hidden}
+.rating-bar-fill{height:100%;background:var(--gold);border-radius:3px;transition:width 1s var(--transition)}
+.testimonials-slider{position:relative;overflow:hidden}
+.testimonials-track{display:flex;gap:2rem;transition:transform 0.6s var(--transition)}
+.testimonial-card{min-width:calc(33.333% - 1.33rem);background:var(--bg-card);border:1px solid var(--border);padding:2.5rem;position:relative;flex-shrink:0}
+.testimonial-card::before{content:'"';font-family:var(--font-display);font-size:6rem;color:var(--border-gold);position:absolute;top:-1rem;left:1.5rem;line-height:1}
+.t-stars{color:var(--gold);font-size:0.9rem;margin-bottom:1.5rem}
+.t-text{font-size:1.05rem;color:var(--text-body);font-style:italic;line-height:1.8;margin-bottom:2rem}
+.t-author{display:flex;align-items:center;gap:1rem;border-top:1px solid var(--border);padding-top:1.5rem}
+.t-avatar{width:50px;height:50px;border-radius:50%;background:var(--bg-light);border:2px solid var(--gold);overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.3rem;color:var(--gold)}
+.t-name{font-family:var(--font-display);font-size:1rem;color:var(--text)}
+.t-role{font-family:var(--font-sans);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)}
+.slider-controls{display:flex;gap:1rem;justify-content:center;margin-top:2.5rem}
+.slider-btn{width:48px;height:48px;border:1px solid var(--border-gold);background:none;color:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all 0.3s}
+.slider-btn:hover{background:var(--gold);color:var(--navy)}
+@media(max-width:900px){.testimonial-card{min-width:calc(100% - 0rem)}.rating-overview{flex-direction:column;text-align:center}}
+
+/* BLOG */
+.blog-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem}
+.blog-featured{grid-row:span 2}
+.blog-card{background:var(--bg-card);border:1px solid var(--border);overflow:hidden;transition:all 0.4s;cursor:pointer}
+.blog-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:var(--shadow)}
+.blog-img{width:100%;height:220px;background:var(--bg-light);overflow:hidden}
+.blog-featured .blog-img{height:320px}
+.blog-img-inner{width:100%;height:100%;object-fit:cover;transition:transform 0.6s}
+.blog-card:hover .blog-img-inner{transform:scale(1.05)}
+.blog-body{padding:1.8rem}
+.blog-cat{font-family:var(--font-sans);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;display:block}
+.blog-title{font-family:var(--font-display);font-size:1.1rem;line-height:1.4;margin-bottom:0.8rem;color:var(--text)}
+.blog-featured .blog-title{font-size:1.5rem}
+.blog-excerpt{font-size:0.9rem;color:var(--text-body);line-height:1.6}
+.blog-meta{display:flex;gap:1.5rem;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--border)}
+.blog-meta span{font-family:var(--font-sans);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr}.blog-featured{grid-row:auto}}
+
+/* FAQ */
+#faq{background:var(--bg-mid)}
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border);overflow:hidden}
+.faq-question{display:flex;justify-content:space-between;align-items:center;padding:1.8rem 0;cursor:pointer;font-family:var(--font-display);font-size:1.1rem;color:var(--text);transition:color 0.3s;gap:1rem}
+.faq-question:hover{color:var(--gold)}
+.faq-icon{width:28px;height:28px;border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1rem;flex-shrink:0;transition:all 0.3s}
+.faq-item.open .faq-icon{background:var(--gold);color:var(--navy);transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s}
+.faq-answer-inner{padding:0 0 1.8rem;font-size:1rem;color:var(--text-body);line-height:1.8}
+.faq-item.open .faq-answer{max-height:300px}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start}
+.contact-info h3{font-family:var(--font-display);font-size:1.8rem;margin-bottom:1rem}
+.contact-detail{display:flex;gap:1.2rem;align-items:flex-start;margin-bottom:2rem}
+.contact-icon{width:44px;height:44px;border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0}
+.contact-label{font-family:var(--font-sans);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.3rem}
+.contact-value{font-family:var(--font-body);font-size:1rem;color:var(--text)}
+.social-row{display:flex;gap:1rem;margin-top:2.5rem}
+.social-link{width:40px;height:40px;border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:0.85rem;transition:all 0.3s;text-decoration:none;cursor:pointer}
+.social-link:hover{background:var(--gold);color:var(--navy)}
+.contact-form{background:var(--bg-card);padding:3rem;border:1px solid var(--border)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1rem}
+.form-group label{font-family:var(--font-sans);font-size:0.67rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted)}
+.form-group input,.form-group textarea,.form-group select{background:var(--bg-light);border:1px solid var(--border);color:var(--text);font-family:var(--font-body);font-size:1rem;padding:0.9rem 1.2rem;outline:none;transition:border-color 0.3s;-webkit-appearance:none}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold)}
+.form-group textarea{resize:vertical;min-height:120px}
+.map-placeholder{margin-top:2rem;height:200px;background:var(--bg-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-family:var(--font-sans);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+
+/* PRESS */
+.press-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:4rem}
+.press-logo{background:var(--bg-card);border:1px solid var(--border);padding:2.5rem 2rem;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1rem;color:var(--text-muted);transition:all 0.3s;cursor:pointer;font-style:italic}
+.press-logo:hover{border-color:var(--gold);color:var(--gold)}
+.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.partner-card{background:var(--bg-card);border:1px solid var(--border);padding:2.5rem;text-align:center;transition:all 0.3s}
+.partner-card:hover{border-color:var(--gold)}
+.partner-logo-placeholder{width:80px;height:80px;border-radius:50%;background:var(--bg-light);border:2px solid var(--border-gold);margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.partner-card h4{font-family:var(--font-display);font-size:1.1rem;margin-bottom:0.5rem}
+.partner-card p{font-size:0.9rem;color:var(--text-body)}
+@media(max-width:900px){.press-logos{grid-template-columns:repeat(2,1fr)}.partner-grid{grid-template-columns:1fr}}
+
+/* TEAM */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.team-card{text-align:center;cursor:pointer}
+.team-img{width:100%;aspect-ratio:3/4;background:var(--bg-light);border:1px solid var(--border);margin-bottom:1.2rem;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.team-initials{font-family:var(--font-display);font-size:2.5rem;color:var(--border-gold)}
+.team-card-overlay{position:absolute;inset:0;background:rgba(13,17,23,0.85);opacity:0;transition:opacity 0.4s;display:flex;align-items:center;justify-content:center;padding:1.5rem}
+.team-card:hover .team-card-overlay{opacity:1}
+.team-bio{font-size:0.85rem;color:var(--text-body);text-align:center;font-style:italic}
+.team-card h4{font-family:var(--font-display);font-size:1.1rem}
+.team-card span{font-family:var(--font-sans);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold)}
+@media(max-width:900px){.team-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.team-grid{grid-template-columns:1fr}}
+
+/* NEWSLETTER */
+.newsletter-band{background:var(--gold);padding:5rem 0}
+.newsletter-inner{display:flex;align-items:center;gap:4rem;max-width:900px;margin:0 auto;padding:0 2rem}
+.newsletter-text{flex:1}
+.newsletter-text h3{font-family:var(--font-display);font-size:2rem;color:var(--navy);margin-bottom:0.5rem}
+.newsletter-text p{color:rgba(13,17,23,0.7);font-family:var(--font-body);font-size:1.05rem}
+.newsletter-form{flex:1;display:flex;gap:0}
+.newsletter-form input{flex:1;background:var(--navy);border:none;color:var(--cream);font-family:var(--font-body);font-size:1rem;padding:1rem 1.5rem;outline:none}
+.newsletter-form button{background:var(--navy);color:var(--gold);font-family:var(--font-sans);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;padding:1rem 1.5rem;border:none;cursor:pointer;transition:background 0.3s;white-space:nowrap}
+.newsletter-form button:hover{background:#0a0d12}
+@media(max-width:768px){.newsletter-inner{flex-direction:column}.newsletter-form{width:100%}}
+
+/* FOOTER */
+footer{background:var(--navy);border-top:1px solid var(--border);padding:5rem 0 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:4rem}
+.footer-brand{font-family:var(--font-display);font-size:1.5rem;color:var(--gold);margin-bottom:1rem;font-style:italic}
+.footer-tagline{font-size:0.9rem;color:var(--text-muted);margin-bottom:1.5rem;line-height:1.7}
+.footer-col h5{font-family:var(--font-sans);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.7rem}
+.footer-links a{font-size:0.9rem;color:var(--text-muted);text-decoration:none;transition:color 0.3s;font-family:var(--font-body)}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-family:var(--font-sans);font-size:0.68rem;letter-spacing:0.08em;color:var(--text-muted);text-transform:uppercase}
+.footer-legal{display:flex;gap:2rem}
+.footer-legal a{font-family:var(--font-sans);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color 0.3s}
+.footer-legal a:hover{color:var(--gold)}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.footer-grid{grid-template-columns:1fr}}
+
+/* PAGE SECTIONS (hidden/visible) */
+.page-section{display:none}
+.page-section.active{display:block}
+#home{display:flex}
+
+/* WHATSAPP */
+.whatsapp-float{position:fixed;bottom:2rem;right:2rem;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:900;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.3s}
+.whatsapp-float:hover{transform:scale(1.1)}
+.whatsapp-float svg{width:28px;height:28px;fill:white}
+
+/* NOTIFICATION */
+.notification{position:fixed;top:5rem;right:2rem;background:var(--gold);color:var(--navy);font-family:var(--font-sans);font-size:0.78rem;font-weight:600;padding:1rem 1.5rem;z-index:2000;transform:translateX(120%);transition:transform 0.4s var(--transition);letter-spacing:0.05em;max-width:300px}
+.notification.show{transform:translateX(0)}
+
+/* ANIMATE ON SCROLL */
+.aos{opacity:0;transform:translateY(30px);transition:opacity 0.7s,transform 0.7s}
+.aos.visible{opacity:1;transform:translateY(0)}
+.aos-delay-1{transition-delay:0.1s}
+.aos-delay-2{transition-delay:0.2s}
+.aos-delay-3{transition-delay:0.3s}
+.aos-delay-4{transition-delay:0.4s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="showPage('home')"><span>UNEEK</span> Events UK</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" onclick="showPage('home')" class="active" data-page="home">Home</a></li>
+      <li><a href="#" onclick="showPage('about')" data-page="about">About</a></li>
+      <li><a href="#" onclick="showPage('services')" data-page="services">Services</a></li>
+      <li><a href="#" onclick="showPage('portfolio')" data-page="portfolio">Portfolio</a></li>
+      <li><a href="#" onclick="showPage('blog')" data-page="blog">Blog</a></li>
+      <li><a href="#" onclick="showPage('testimonials')" data-page="testimonials">Testimonials</a></li>
+      <li><a href="#" onclick="showPage('faq')" data-page="faq">FAQ</a></li>
+      <li><a href="#" onclick="showPage('press')" data-page="press">Press</a></li>
+      <li><a href="#" onclick="showPage('contact')" data-page="contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle theme">☽</button>
+      <a href="#" class="btn btn-gold" onclick="showPage('contact')" style="padding:0.7rem 1.5rem;font-size:0.68rem">Book Now</a>
+      <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- NOTIFICATION -->
+<div class="notification" id="notification"></div>
+
+<!-- ==================== HOME ==================== -->
+<section id="home" class="page-section active">
+  <div class="hero-bg">
+    <div class="hero-slides">
+      <div class="hero-slide active"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-pattern"></div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">✦ Est. 2015 · United Kingdom ✦</span>
+    <h1 class="hero-title">Crafting Events<em>Beyond Compare</em></h1>
+    <p class="hero-subtitle">From intimate wedding ceremonies to grand corporate galas — <br>we transform your vision into an unforgettable reality</p>
+    <div class="hero-ctas">
+      <a href="#" class="btn btn-gold btn-arrow" onclick="showPage('contact')">Get In Touch</a>
+      <a href="#" class="btn btn-outline" onclick="showPage('portfolio')">View Our Work</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Events Delivered</div></div>
+    <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Client Satisfaction</div></div>
+    <div class="stat-item"><div class="stat-num">9+</div><div class="stat-label">Years Experience</div></div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- MARQUEE (always visible below hero) -->
+<div class="marquee-bar" id="marqueeBand" style="display:none">
+  <div class="marquee-track">
+    <span class="marquee-item">Weddings <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Corporate Galas <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Award Ceremonies <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Charity Events <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Birthday Celebrations <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Product Launches <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Anniversaries <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Conferences <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Weddings <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Corporate Galas <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Award Ceremonies <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Charity Events <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Birthday Celebrations <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Product Launches <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Anniversaries <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Conferences <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- ==================== ABOUT ==================== -->
+<section id="about" class="page-section">
+  <div class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-stack aos">
+          <div class="about-img-main img-placeholder" style="display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.2rem;color:var(--text-muted);font-style:italic">Our Story</div>
+          <div class="about-img-accent img-placeholder" style="display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1rem;color:var(--gold);font-style:italic">Since 2015</div>
+          <div class="about-badge"><div class="about-badge-inner"><div class="about-badge-num">500+</div><div class="about-badge-text">Events</div></div></div>
+        </div>
+        <div class="aos aos-delay-2">
+          <span class="section-tag">✦ Our Story</span>
+          <h2 class="section-title">Born from a Passion for <em class="gold" style="font-style:italic">Perfection</em></h2>
+          <div class="divider"><div class="divider-diamond"></div></div>
+          <p class="section-sub" style="margin-bottom:1.5rem">Founded in 2015, UNEEK EVENTS UK was born from a shared belief that every celebration deserves to be extraordinary. We combine meticulous planning with creative vision to produce events that leave lasting impressions.</p>
+          <p style="color:var(--text-body);font-size:1rem;line-height:1.8;margin-bottom:2rem">Our team of dedicated event specialists has delivered over 500 memorable occasions across the United Kingdom — from intimate garden weddings in the Cotswolds to large-scale corporate galas in the heart of London.</p>
+          <div class="values-row">
+            <div class="value-item"><div class="value-icon">✦</div><div class="value-text"><h4>Vision</h4><p>Every event tells a unique story we help craft</p></div></div>
+            <div class="value-item"><div class="value-icon">◈</div><div class="value-text"><h4>Detail</h4><p>Meticulous attention from concept to farewell</p></div></div>
+            <div class="value-item"><div class="value-icon">❋</div><div class="value-text"><h4>Trust</h4><p>Transparent, honest client relationships always</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAM -->
+  <div class="section-sm" style="background:var(--bg-mid);padding:5rem 0">
+    <div class="container">
+      <div class="text-center aos" style="margin-bottom:3.5rem">
+        <span class="section-tag">✦ The People Behind The Magic</span>
+        <h2 class="section-title">Meet Our Team</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card aos"><div class="team-img"><div class="team-initials">SA</div><div class="team-card-overlay"><p class="team-bio">"Creating moments that families will treasure for generations is what drives me every single day."</p></div></div><h4>Sarah Ahmed</h4><span>Founder & Creative Director</span></div>
+        <div class="team-card aos aos-delay-1"><div class="team-img"><div class="team-initials">MK</div><div class="team-card-overlay"><p class="team-bio">"Logistics might be invisible when done right — but that's exactly the point."</p></div></div><h4>Marcus King</h4><span>Head of Operations</span></div>
+        <div class="team-card aos aos-delay-2"><div class="team-img"><div class="team-initials">PC</div><div class="team-card-overlay"><p class="team-bio">"I believe every venue has untapped potential — my job is to unlock it."</p></div></div><h4>Priya Chandra</h4><span>Venue & Décor Specialist</span></div>
+        <div class="team-card aos aos-delay-3"><div class="team-img"><div class="team-initials">JO</div><div class="team-card-overlay"><p class="team-bio">"The perfect corporate event blends professionalism with genuine human connection."</p></div></div><h4>James Oliver</h4><span>Corporate Events Lead</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SERVICES ==================== -->
+<section id="services" class="page-section">
+  <div class="section">
+    <div class="container">
+      <div class="text-center aos" style="margin-bottom:4rem">
+        <span class="section-tag">✦ What We Do Best</span>
+        <h2 class="section-title">Our Signature Services</h2>
+        <p class="section-sub" style="margin:0 auto">From the first consultation to the final farewell, we manage every detail so you can simply savour the moment.</p>
+      </div>
+      <div class="services-grid aos">
+        <div class="service-card"><div class="service-num">01</div><div class="service-icon">💍</div><h3>Wedding Events</h3><p>From intimate ceremonies to grand celebrations, we orchestrate every detail of your perfect day — venue dressing, catering coordination, entertainment and beyond.</p><div class="service-tags"><span class="service-tag">Ceremony</span><span class="service-tag">Reception</span><span class="service-tag">Décor</span></div></div>
+        <div class="service-card"><div class="service-num">02</div><div class="service-icon">🏛️</div><h3>Corporate Galas</h3><p>We elevate your brand through sophisticated corporate events — product launches, award ceremonies, and annual dinners that leave a lasting impression on your guests.</p><div class="service-tags"><span class="service-tag">Conferences</span><span class="service-tag">Awards</span><span class="service-tag">Launches</span></div></div>
+        <div class="service-card"><div class="service-num">03</div><div class="service-icon">🎉</div><h3>Private Celebrations</h3><p>Milestone birthdays, anniversaries, baby showers — we bring your personal vision to life with flair, warmth, and an obsessive attention to detail.</p><div class="service-tags"><span class="service-tag">Birthdays</span><span class="service-tag">Anniversaries</span><span class="service-tag">Bespoke</span></div></div>
+        <div class="service-card"><div class="service-num">04</div><div class="service-icon">📍</div><h3>Venue Selection</h3><p>Access to our curated network of exclusive UK venues. We match your vision to the perfect space, negotiate contracts, and handle all logistics on your behalf.</p><div class="service-tags"><span class="service-tag">Scouting</span><span class="service-tag">Negotiation</span><span class="service-tag">UK-wide</span></div></div>
+        <div class="service-card"><div class="service-num">05</div><div class="service-icon">🍽️</div><h3>Catering & Hospitality</h3><p>From Michelin-trained private chefs to full banquet services, we coordinate exceptional culinary experiences tailored to your taste and dietary requirements.</p><div class="service-tags"><span class="service-tag">Fine Dining</span><span class="service-tag">Canapes</span><span class="service-tag">Dietary</span></div></div>
+        <div class="service-card"><div class="service-num">06</div><div class="service-icon">🎵</div><h3>Entertainment & AV</h3><p>Live bands, DJs, photo booths, audiovisual production — we curate and coordinate entertainment that perfectly complements the energy of your event.</p><div class="service-tags"><span class="service-tag">Live Music</span><span class="service-tag">AV Production</span><span class="service-tag">Photo Booth</span></div></div>
+      </div>
+      <div class="text-center" style="margin-top:3rem"><a href="#" class="btn btn-outline btn-arrow" onclick="showPage('contact')">Enquire About Your Event</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PORTFOLIO ==================== -->
+<section id="portfolio" class="page-section">
+  <div class="section">
+    <div class="container">
+      <div class="text-center aos" style="margin-bottom:3.5rem">
+        <span class="section-tag">✦ Our Work</span>
+        <h2 class="section-title">A Portfolio of Extraordinary Moments</h2>
+        <p class="section-sub" style="margin:0 auto">Browse our curated collection of past events — each one a testament to our commitment to excellence.</p>
+      </div>
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All Events</button>
+        <button class="filter-btn" data-filter="wedding">Weddings</button>
+        <button class="filter-btn" data-filter="corporate">Corporate</button>
+        <button class="filter-btn" data-filter="private">Private</button>
+        <button class="filter-btn" data-filter="gala">Galas</button>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item wide" data-cat="wedding"><div class="portfolio-bg pd-1" style="background:linear-gradient(135deg,#1a0830 0%,#2a0a1a 50%,#1a0830 100%)"></div><div class="portfolio-overlay"><div class="portfolio-info"><h4>The Hartington Wedding</h4><span>Cotswolds · June 2024</span></div></div></div>
+        <div class="portfolio-item" data-cat="corporate"><div class="portfolio-bg pd-4" style="background:linear-gradient(225deg,#0a1030 0%,#0a2030 100%)"></div><div class="portfolio-overlay"><div class="portfolio-info"><h4>Apex Annual Gala</h4><span>London · Feb 2024</span></div></div></div>
+        <div class="portfolio-item tall" data-cat="gala"><div class="portfolio-bg pd-3" style="background:linear-gradient(180deg,#1a0a0a 0%,#300a0a 100%)"></div><div class="portfolio-overlay"><div class="portfolio-info"><h4>Charity Gala Evening</h4><span>Manchester · Oct 2023</span></div></div></div>
+        <div class="portfolio-item" data-cat="private"><div class="portfolio-bg pd-2" style="background:linear-gradient(45deg,#0a1a10 0%,#0a2a1a 100%)"></div><div class="portfolio-overlay"><div class="portfolio-info"><h4>The Davidson 50th</h4><span>Edinburgh · Aug 2023</span></div></div></div>
+        <div class="portfolio-item" data-cat="wedding"><div class="portfolio-bg pd-5" style="background:linear-gradient(135deg,#1a1020 0%,#251530 100%)"></div><div class="portfolio-overlay"><div class="portfolio-info"><h4>Patel-Williams Wedding</h4><span>Birmingham · May 2024</span></div></div></div>
+        <div class="portfolio-item wide" data-cat="corporate"><div class="portfolio-bg pd-6" style="background:linear-gradient(225deg,#0a1520 0%,#1a2530 100%)"></div><div class="portfolio-overlay"><div class="portfolio-info"><h4>Summit Technology Conference</h4><span>London · Jan 2024</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BLOG ==================== -->
+<section id="blog" class="page-section">
+  <div class="section">
+    <div class="container">
+      <div class="text-center aos" style="margin-bottom:3.5rem">
+        <span class="section-tag">✦ Insights & Inspiration</span>
+        <h2 class="section-title">From Our Journal</h2>
+        <div style="display:flex;justify-content:center;gap:0.5rem;margin-top:1.5rem;flex-wrap:wrap" id="blogFilters">
+          <button class="filter-btn active" data-blog="all">All</button>
+          <button class="filter-btn" data-blog="weddings">Weddings</button>
+          <button class="filter-btn" data-blog="corporate">Corporate</button>
+          <button class="filter-btn" data-blog="trends">Trends</button>
+          <button class="filter-btn" data-blog="tips">Tips</button>
+        </div>
+      </div>
+      <div class="blog-grid aos">
+        <div class="blog-card blog-featured"><div class="blog-img"><div class="blog-img-inner" style="background:linear-gradient(135deg,#1a0830,#2a0a40);height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:2rem;color:var(--border-gold);font-style:italic">Featured</div></div><div class="blog-body"><span class="blog-cat">Wedding Trends</span><h3 class="blog-title">10 Must-Have Wedding Trends for 2025 That Will Take Your Breath Away</h3><p class="blog-excerpt">From immersive floral installations to personalised ceremony rituals, this year's wedding landscape is rewriting the rules of romance. We explore the trends our couples are loving most...</p><div class="blog-meta"><span>🗓 March 2025</span><span>⏱ 8 min read</span><span>💬 24 comments</span></div></div></div>
+        <div class="blog-card"><div class="blog-img"><div class="blog-img-inner" style="background:linear-gradient(135deg,#0a1020,#0a2030);height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.2rem;color:var(--border-gold);font-style:italic">Corporate</div></div><div class="blog-body"><span class="blog-cat">Industry Insight</span><h3 class="blog-title">The Future of Corporate Events in a Hybrid World</h3><p class="blog-excerpt">How forward-thinking brands are blending in-person and virtual experiences...</p><div class="blog-meta"><span>🗓 Feb 2025</span><span>⏱ 5 min</span></div></div></div>
+        <div class="blog-card"><div class="blog-img"><div class="blog-img-inner" style="background:linear-gradient(135deg,#100a10,#201a20);height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.2rem;color:var(--border-gold);font-style:italic">Planning</div></div><div class="blog-body"><span class="blog-cat">Planning Tips</span><h3 class="blog-title">How to Choose the Perfect Venue: A Complete Guide</h3><p class="blog-excerpt">Our experts share the non-negotiable questions to ask every venue...</p><div class="blog-meta"><span>🗓 Jan 2025</span><span>⏱ 6 min</span></div></div></div>
+        <div class="blog-card"><div class="blog-img"><div class="blog-img-inner" style="background:linear-gradient(135deg,#0a1a0a,#102010);height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.2rem;color:var(--border-gold);font-style:italic">News</div></div><div class="blog-body"><span class="blog-cat">Company News</span><h3 class="blog-title">UNEEK EVENTS Named Top 10 Event Planners in the Midlands 2024</h3><p class="blog-excerpt">We are thrilled to share this incredible recognition from our industry peers...</p><div class="blog-meta"><span>🗓 Dec 2024</span><span>⏱ 3 min</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER BAND inside blog page -->
+  <div class="newsletter-band">
+    <div class="newsletter-inner">
+      <div class="newsletter-text"><h3>Stay Inspired</h3><p>Subscribe to our newsletter for planning tips, trend reports and exclusive offers.</p></div>
+      <div class="newsletter-form"><input type="email" placeholder="Your email address" id="newsletterEmail"><button onclick="subscribeNewsletter()">Subscribe</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section id="testimonials" class="page-section">
+  <div class="section" id="testimonials-section">
+    <div class="container">
+      <div class="text-center aos" style="margin-bottom:3.5rem">
+        <span class="section-tag">✦ What Our Clients Say</span>
+        <h2 class="section-title">Reviews & Testimonials</h2>
+      </div>
+      <div class="rating-overview aos">
+        <div style="text-align:center"><div class="rating-big">4.9</div><span class="rating-stars">★★★★★</span><div class="rating-count">Based on 127 reviews</div></div>
+        <div class="rating-bars">
+          <div class="rating-bar-row"><span class="rating-bar-label">5 ★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:89%"></div></div><span style="font-family:var(--font-sans);font-size:0.7rem;color:var(--text-muted);min-width:35px">89%</span></div>
+          <div class="rating-bar-row"><span class="rating-bar-label">4 ★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:8%"></div></div><span style="font-family:var(--font-sans);font-size:0.7rem;color:var(--text-muted);min-width:35px">8%</span></div>
+          <div class="rating-bar-row"><span class="rating-bar-label">3 ★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:2%"></div></div><span style="font-family:var(--font-sans);font-size:0.7rem;color:var(--text-muted);min-width:35px">2%</span></div>
+          <div class="rating-bar-row"><span class="rating-bar-label">2 ★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:1%"></div></div><span style="font-family:var(--font-sans);font-size:0.7rem;color:var(--text-muted);min-width:35px">1%</span></div>
+          <div class="rating-bar-row"><span class="rating-bar-label">1 ★</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div><span style="font-family:var(--font-sans);font-size:0.7rem;color:var(--text-muted);min-width:35px">0%</span></div>
+        </div>
+      </div>
+      <div class="testimonials-slider">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <div class="testimonial-card"><div class="t-stars">★★★★★</div><p class="t-text">UNEEK EVENTS exceeded every expectation we had for our wedding day. From the initial consultation to the final dance, every moment was flawlessly orchestrated. Our guests are still talking about it months later.</p><div class="t-author"><div class="t-avatar">A</div><div><div class="t-name">Amara & Daniel B.</div><div class="t-role">Wedding · London · 2024</div></div></div></div>
+          <div class="testimonial-card"><div class="t-stars">★★★★★</div><p class="t-text">Our annual awards gala was transformed into something truly spectacular. The production quality, décor, and overall management were second to none. UNEEK has earned our partnership for years to come.</p><div class="t-author"><div class="t-avatar">R</div><div><div class="t-name">Rachel Thornton</div><div class="t-role">Head of Marketing, TechForward Ltd</div></div></div></div>
+          <div class="testimonial-card"><div class="t-stars">★★★★★</div><p class="t-text">I came to them with a half-formed idea for my mother's 70th birthday. They listened, understood, and delivered something so beautiful it brought everyone to tears. Truly a gift of a company.</p><div class="t-author"><div class="t-avatar">S</div><div><div class="t-name">Simone Okafor</div><div class="t-role">Private Celebration · Birmingham</div></div></div></div>
+          <div class="testimonial-card"><div class="t-stars">★★★★★</div><p class="t-text">The attention to detail was extraordinary. Every single element — from the table linen to the lighting — was perfectly curated. UNEEK made planning completely stress-free for us.</p><div class="t-author"><div class="t-avatar">J</div><div><div class="t-name">James & Priya Mehta</div><div class="t-role">Wedding · Cotswolds · 2024</div></div></div></div>
+          <div class="testimonial-card"><div class="t-stars">★★★★★</div><p class="t-text">Professional, creative, and genuinely passionate. Our conference felt elevated beyond anything we had previously organised in-house. Delegate feedback scores hit an all-time high.</p><div class="t-author"><div class="t-avatar">M</div><div><div class="t-name">Michael Chen</div><div class="t-role">CEO, Nexus Group</div></div></div></div>
+        </div>
+      </div>
+      <div class="slider-controls"><button class="slider-btn" onclick="slideTestimonials(-1)">←</button><button class="slider-btn" onclick="slideTestimonials(1)">→</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FAQ ==================== -->
+<section id="faq" class="page-section">
+  <div class="section">
+    <div class="container">
+      <div class="text-center aos" style="margin-bottom:4rem">
+        <span class="section-tag">✦ Common Questions</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-sub" style="margin:0 auto">Everything you need to know about working with UNEEK EVENTS UK.</p>
+      </div>
+      <div class="faq-list aos">
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>How do I book your services?</span><div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">Simply use our Contact page or call us directly to arrange a free initial consultation. During this meeting we'll discuss your vision, date, budget and requirements. Once we're aligned, we'll send you a detailed proposal and event agreement to formalise the booking.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>What is your pricing structure?</span><div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">Every event is unique, so we provide bespoke quotes based on your specific requirements. Our fees typically cover a management retainer plus supplier coordination costs. We're always transparent — no hidden charges. Contact us for a tailored quote and we'll work within your budget wherever possible.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>How far in advance should I book?</span><div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">We recommend booking at least 9–12 months in advance for weddings and major corporate events, and 3–6 months for smaller occasions. That said, we have successfully delivered events with much shorter lead times — please don't hesitate to reach out even for last-minute enquiries.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Do you work outside of the UK?</span><div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">Our primary focus is the United Kingdom, but we do manage destination events in Europe for existing clients. If you're interested in an event abroad, please contact us and we'll discuss the feasibility based on your dates and location.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Can you accommodate specific cultural or religious requirements?</span><div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">Absolutely. We are deeply experienced in planning events that honour a wide range of cultural, religious and dietary requirements — including South Asian, Middle Eastern, African, and Western traditions. Inclusivity and sensitivity are central to how we work.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>What happens if something goes wrong on the day?</span><div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">Our on-the-day coordination team handles every contingency so you never have to worry. We have robust contingency plans for weather, supplier no-shows, technical issues and more. All our events are covered by our comprehensive liability insurance.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Do you provide a day-of coordination service only?</span><div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">Yes — in addition to full event management, we offer a Day-of Coordination package for clients who have planned their own event but want professional oversight on the day. Contact us to learn more about this service.</div></div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Are you insured?</span><div class="faq-icon">+</div></div><div class="faq-answer"><div class="faq-answer-inner">Yes. UNEEK EVENTS UK holds full public liability insurance and professional indemnity insurance. Documentation can be provided to venues upon request as part of our standard event preparation process.</div></div></div>
+      </div>
+      <div class="text-center" style="margin-top:4rem"><p style="color:var(--text-body);margin-bottom:1.5rem;font-family:var(--font-body);font-size:1.1rem">Still have questions? We'd love to hear from you.</p><a href="#" class="btn btn-gold btn-arrow" onclick="showPage('contact')">Get In Touch</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section id="contact" class="page-section">
+  <div class="section">
+    <div class="container">
+      <div class="text-center aos" style="margin-bottom:4rem">
+        <span class="section-tag">✦ Let's Create Something Wonderful</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-sub" style="margin:0 auto">We'd love to hear about your event. Reach out and one of our team will be in touch within 24 hours.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="aos">
+          <div class="contact-detail"><div class="contact-icon">📍</div><div><div class="contact-label">Address</div><div class="contact-value">12 Goldsworth Lane, Birmingham<br>B1 1AA, United Kingdom</div></div></div>
+          <div class="contact-detail"><div class="contact-icon">📞</div><div><div class="contact-label">Phone</div><div class="contact-value">+44 (0) 121 123 4567</div></div></div>
+          <div class="contact-detail"><div class="contact-icon">✉️</div><div><div class="contact-label">Email</div><div class="contact-value">hello@uneekeventsuk.com</div></div></div>
+          <div class="contact-detail"><div class="contact-icon">🕐</div><div><div class="contact-label">Office Hours</div><div class="contact-value">Mon – Fri: 9am – 6pm<br>Sat: 10am – 4pm</div></div></div>
+          <div class="social-row">
+            <div class="social-link" title="Instagram">Ig</div>
+            <div class="social-link" title="Facebook">Fb</div>
+            <div class="social-link" title="LinkedIn">Li</div>
+            <div class="social-link" title="Pinterest">Pt</div>
+            <div class="social-link" title="TikTok">Tk</div>
+          </div>
+          <div class="map-placeholder" style="margin-top:2rem">📍 Google Maps — Birmingham, UK</div>
+        </div>
+        <div class="contact-form aos aos-delay-2">
+          <h3 style="font-family:var(--font-display);font-size:1.5rem;margin-bottom:2rem;color:var(--text)">Send Us a Message</h3>
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane"></div>
+            <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Email</label><input type="email" placeholder="jane@example.com"></div>
+            <div class="form-group"><label>Phone</label><input type="tel" placeholder="+44 ..."></div>
+          </div>
+          <div class="form-group"><label>Event Type</label><select><option value="">Select event type...</option><option>Wedding</option><option>Corporate Gala</option><option>Private Celebration</option><option>Conference</option><option>Other</option></select></div>
+          <div class="form-row">
+            <div class="form-group"><label>Preferred Date</label><input type="date"></div>
+            <div class="form-group"><label>Approximate Budget</label><select><option value="">Select range...</option><option>Under £5,000</option><option>£5,000 – £15,000</option><option>£15,000 – £30,000</option><option>£30,000 – £50,000</option><option>£50,000+</option></select></div>
+          </div>
+          <div class="form-group"><label>Tell Us About Your Vision</label><textarea placeholder="Describe your event, venue ideas, guest numbers, any special requirements..."></textarea></div>
+          <button class="btn btn-gold btn-arrow" style="width:100%;justify-content:center" onclick="submitForm()">Send Your Enquiry</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PRESS ==================== -->
+<section id="press" class="page-section">
+  <div class="section">
+    <div class="container">
+      <div class="text-center aos" style="margin-bottom:4rem">
+        <span class="section-tag">✦ In The Press</span>
+        <h2 class="section-title">Media & Partnerships</h2>
+      </div>
+      <h3 style="font-family:var(--font-sans);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem">As Featured In</h3>
+      <div class="press-logos">
+        <div class="press-logo">Tatler</div>
+        <div class="press-logo">Vogue Weddings</div>
+        <div class="press-logo">The Times</div>
+        <div class="press-logo">Event Magazine</div>
+        <div class="press-logo">Harper's Bazaar</div>
+        <div class="press-logo">Wedding Ideas</div>
+        <div class="press-logo">Confetti</div>
+        <div class="press-logo">Brides Magazine</div>
+      </div>
+      <div class="divider" style="margin:3rem 0"><div class="divider-diamond"></div></div>
+      <h3 style="font-family:var(--font-sans);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:2.5rem">Our Trusted Partners</h3>
+      <div class="partner-grid aos">
+        <div class="partner-card"><div class="partner-logo-placeholder">🌸</div><h4>Blossom Floral Studio</h4><p>Award-winning florists specialising in luxury event installations across the UK</p></div>
+        <div class="partner-card"><div class="partner-logo-placeholder">🎵</div><h4>Prestige Entertainment</h4><p>Live bands, DJs and entertainment acts for events of all sizes and styles</p></div>
+        <div class="partner-card"><div class="partner-logo-placeholder">📸</div><h4>Moments Captured</h4><p>Documentary-style photography and cinematic videography for unforgettable events</p></div>
+        <div class="partner-card"><div class="partner-logo-placeholder">🍽️</div><h4>The Grand Table</h4><p>Michelin-trained private chefs and full catering services for luxury occasions</p></div>
+        <div class="partner-card"><div class="partner-logo-placeholder">🏛️</div><h4>Historic Venues UK</h4><p>Exclusive access to a portfolio of Britain's most breathtaking historic venues</p></div>
+        <div class="partner-card"><div class="partner-logo-placeholder">💡</div><h4>Luminance AV</h4><p>State-of-the-art lighting, audio and visual production for unforgettable atmospheres</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="mainFooter">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><em>UNEEK</em> Events UK</div>
+        <p class="footer-tagline">Making it a special day since 2015. We are passionate about creating extraordinary events that reflect your unique story and leave guests with memories to cherish forever.</p>
+        <div class="social-row">
+          <div class="social-link">Ig</div>
+          <div class="social-link">Fb</div>
+          <div class="social-link">Li</div>
+          <div class="social-link">Pt</div>
+        </div>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul class="footer-links">
+          <li><a href="#" onclick="showPage('services')">Wedding Events</a></li>
+          <li><a href="#" onclick="showPage('services')">Corporate Galas</a></li>
+          <li><a href="#" onclick="showPage('services')">Private Celebrations</a></li>
+          <li><a href="#" onclick="showPage('services')">Venue Selection</a></li>
+          <li><a href="#" onclick="showPage('services')">Entertainment & AV</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="#" onclick="showPage('about')">About Us</a></li>
+          <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+          <li><a href="#" onclick="showPage('blog')">Journal</a></li>
+          <li><a href="#" onclick="showPage('press')">Press</a></li>
+          <li><a href="#" onclick="showPage('testimonials')">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul class="footer-links">
+          <li><a href="#">hello@uneekeventsuk.com</a></li>
+          <li><a href="#">+44 (0) 121 123 4567</a></li>
+          <li><a href="#">Birmingham, UK</a></li>
+          <li><a href="#" onclick="showPage('faq')">FAQs</a></li>
+          <li><a href="#" onclick="showPage('contact')">Book A Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 UNEEK Events UK · All Rights Reserved · Made with ♥ in the UK</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<div class="whatsapp-float" onclick="openWhatsApp()" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</div>
+
+<script>
+// ============ PAGE NAVIGATION ============
+function showPage(pageName) {
+  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+  const target = document.getElementById(pageName);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active', a.dataset.page === pageName);
+  });
+  document.getElementById('mainFooter').style.display = 'block';
+  // Trigger AOS for newly shown sections
+  setTimeout(checkAOS, 100);
+  // Close hamburger menu
+  document.getElementById('navLinks').classList.remove('open');
+  return false;
+}
+
+// ============ THEME ============
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.dataset.theme === 'dark';
+  html.dataset.theme = isDark ? 'light' : 'dark';
+  document.getElementById('themeToggle').textContent = isDark ? '☀' : '☽';
+}
+
+// ============ NAV SCROLL ============
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ============ HAMBURGER ============
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ============ HERO SLIDES ============
+let slideIdx = 0;
+const slides = document.querySelectorAll('.hero-slide');
+function nextSlide() {
+  slides[slideIdx].classList.remove('active');
+  slideIdx = (slideIdx + 1) % slides.length;
+  slides[slideIdx].classList.add('active');
+}
+setInterval(nextSlide, 4500);
+
+// ============ PORTFOLIO FILTERS ============
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const parent = this.closest('.portfolio-filters') || this.closest('#blogFilters');
+    if (parent) {
+      parent.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    } else {
+      document.querySelectorAll('.portfolio-filters .filter-btn').forEach(b=>b.classList.remove('active'));
+    }
+    this.classList.add('active');
+    const filter = this.dataset.filter;
+    if (filter) {
+      document.querySelectorAll('.portfolio-item').forEach(item => {
+        item.style.opacity = (!filter || filter==='all' || item.dataset.cat===filter) ? '1':'0.2';
+      });
+    }
+  });
+});
+
+// ============ FAQ ACCORDION ============
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ============ TESTIMONIALS SLIDER ============
+let tSlide = 0;
+function slideTestimonials(dir) {
+  const track = document.getElementById('testimonialsTrack');
+  const cards = track.querySelectorAll('.testimonial-card');
+  const visible = window.innerWidth < 900 ? 1 : 3;
+  const max = cards.length - visible;
+  tSlide = Math.max(0, Math.min(tSlide + dir, max));
+  const cardWidth = cards[0].offsetWidth + 32;
+  track.style.transform = `translateX(-${tSlide * cardWidth}px)`;
+}
+
+// ============ FORM SUBMIT ============
+function submitForm() {
+  showNotification('✓ Thank you! We\'ll be in touch within 24 hours.');
+}
+function subscribeNewsletter() {
+  const email = document.getElementById('newsletterEmail').value;
+  if (email) {
+    showNotification('✓ Subscribed! Welcome to the UNEEK family.');
+    document.getElementById('newsletterEmail').value = '';
+  } else {
+    showNotification('Please enter your email address.');
+  }
+}
+
+// ============ NOTIFICATION ============
+function showNotification(msg) {
+  const n = document.getElementById('notification');
+  n.textContent = msg;
+  n.classList.add('show');
+  setTimeout(() => n.classList.remove('show'), 4000);
+}
+
+// ============ WHATSAPP ============
+function openWhatsApp() {
+  window.open('https://wa.me/441211234567?text=Hello%20UNEEK%20EVENTS%2C%20I%20would%20like%20to%20enquire%20about%20your%20services.','_blank');
+}
+
+// ============ AOS ============
+function checkAOS() {
+  const elements = document.querySelectorAll('.aos:not(.visible)');
+  elements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60) el.classList.add('visible');
+  });
+}
+window.addEventListener('scroll', checkAOS);
+window.addEventListener('load', () => { setTimeout(checkAOS, 200); });
+
+// Init
+document.getElementById('mainNav').classList.add('scrolled');
+</script>
+</body>
+</html>
